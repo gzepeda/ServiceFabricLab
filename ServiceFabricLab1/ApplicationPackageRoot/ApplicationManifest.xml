@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest ApplicationTypeName="ServiceFabricLab1Type"
-                     ApplicationTypeVersion="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ServiceFabricLab1Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
+    <Parameter Name="InventoryRepository_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="InventoryRepository_PartitionCount" DefaultValue="1" />
+    <Parameter Name="InventoryRepository_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="InventoryService_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
     <Parameter Name="InventoryService_InstanceCount" DefaultValue="-1" />
   </Parameters>
   <!-- Importe el elemento ServiceManifest del ServicePackage. Los elementos ServiceManifestName y ServiceManifestVersion 
        deben coincidir con los atributos Name y Version del elemento ServiceManifest definido en el 
        archivo ServiceManifest.xml. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="InventoryRepositoryPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="InventoryServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -24,6 +27,11 @@
          usando el módulo ServiceFabric de PowerShell.
          
          El atributo ServiceTypeName siguiente debe coincidir con el nombre definido en el archivo ServiceManifest.xml importado. -->
+    <Service Name="InventoryRepository" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="InventoryRepositoryType" TargetReplicaSetSize="[InventoryRepository_TargetReplicaSetSize]" MinReplicaSetSize="[InventoryRepository_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[InventoryRepository_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
     <Service Name="InventoryService" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="InventoryServiceType" InstanceCount="[InventoryService_InstanceCount]">
         <SingletonPartition />

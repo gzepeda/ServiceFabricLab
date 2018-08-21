@@ -5,7 +5,11 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "ServiceFabricLab1", "ServiceFabricLab1\ServiceFabricLab1.sfproj", "{EB2A2791-6791-472F-845B-B333FB8019FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "InventoryService\InventoryService.csproj", "{FA95E930-18FC-466E-B468-F0B349225590}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService", "InventoryService\InventoryService.csproj", "{FA95E930-18FC-466E-B468-F0B349225590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryCommon", "InventoryCommon\InventoryCommon.csproj", "{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryRepository", "InventoryRepository\InventoryRepository.csproj", "{0FD24619-E925-4AC8-8977-30928942932C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,20 @@ Global
 		{FA95E930-18FC-466E-B468-F0B349225590}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA95E930-18FC-466E-B468-F0B349225590}.Release|x64.ActiveCfg = Release|Any CPU
 		{FA95E930-18FC-466E-B468-F0B349225590}.Release|x64.Build.0 = Release|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Debug|x64.Build.0 = Debug|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Release|x64.ActiveCfg = Release|Any CPU
+		{4A1875A5-8A35-4C6F-8FFD-AAB7104047B1}.Release|x64.Build.0 = Release|Any CPU
+		{0FD24619-E925-4AC8-8977-30928942932C}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{0FD24619-E925-4AC8-8977-30928942932C}.Debug|x64.ActiveCfg = Debug|x64
+		{0FD24619-E925-4AC8-8977-30928942932C}.Debug|x64.Build.0 = Debug|x64
+		{0FD24619-E925-4AC8-8977-30928942932C}.Release|Any CPU.ActiveCfg = Release|x64
+		{0FD24619-E925-4AC8-8977-30928942932C}.Release|x64.ActiveCfg = Release|x64
+		{0FD24619-E925-4AC8-8977-30928942932C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
